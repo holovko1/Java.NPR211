@@ -1,0 +1,7 @@
+neforeh520@datingel.com
+Qwerty1-
+
+Host : ep-proud-feather-a5ayx291.us-east-2.aws.neon.tech
+Database : neondb
+User : neondb_owner
+Passworrd : r2PKbS1IupFV
