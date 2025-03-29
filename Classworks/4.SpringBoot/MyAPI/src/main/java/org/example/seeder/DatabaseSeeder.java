@@ -17,8 +17,15 @@ import java.nio.file.StandardCopyOption;
 public class DatabaseSeeder implements CommandLineRunner {
 
     @Autowired
-    private CategorySeeder categorySeeder;
-    @Value("photos.dir")
+    private TablesSeeder tablesSeeder;
+
+    @Autowired
+    private RoleSeeder roleSeeder;
+
+    @Autowired
+    private UserSeeder userSeeder;
+
+    @Value("${photos.dir}")
     private String PHOTO_FOLDER;
     private final String[] SAMPLE_PHOTOS = {
             "https://img.freepik.com/free-photo/modern-stationary-collection-arrangement_23-2149309643.jpg",
@@ -28,8 +35,9 @@ public class DatabaseSeeder implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        categorySeeder.seed();
-
+        tablesSeeder.seed();
+        roleSeeder.seed();
+        userSeeder.seed();
         createPhotoFolder();
         downloadSamplePhotos();
     }

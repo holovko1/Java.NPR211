@@ -4,6 +4,10 @@ import Home from "./pages/Home";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
 import CategoryCreatePage from "./pages/category/CategoryCreatePage.tsx";
+import ProductListPage from "./pages/product/ProductListPage.tsx";
+import ProductCreatePage from "./pages/product/ProductCreatePage.tsx";
+import RegisterPage from "./pages/auth/RegisterPage.tsx";
+import LoginPage from "./pages/auth/LoginPage.tsx";
 
 const App: React.FC = () => {
     return (
@@ -45,6 +49,39 @@ const App: React.FC = () => {
                                     Contact
                                 </NavLink>
                             </li>
+
+                            <li>
+                                <NavLink
+                                    to="/register"
+                                    className={({isActive}) =>
+                                        `hover:underline ${isActive ? "font-bold underline" : ""}`
+                                    }
+                                >
+                                    Реєстрація
+                                </NavLink>
+                            </li>
+
+                            <li>
+                                <NavLink
+                                    to="/login"
+                                    className={({isActive}) =>
+                                        `hover:underline ${isActive ? "font-bold underline" : ""}`
+                                    }
+                                >
+                                    Вхід
+                                </NavLink>
+                            </li>
+
+                            <li>
+                                <NavLink
+                                    to="/product"
+                                    className={({isActive}) =>
+                                        `hover:underline ${isActive ? "font-bold underline" : ""}`
+                                    }
+                                >
+                                    Продукти
+                                </NavLink>
+                            </li>
                         </ul>
                     </nav>
                 </header>
@@ -58,6 +95,12 @@ const App: React.FC = () => {
                         <Route path="/category">
                             <Route path="create" element={<CategoryCreatePage/>}/>
                         </Route>
+                        <Route path="/product">
+                            <Route index element={<ProductListPage/>}/>
+                            <Route path="create" element={<ProductCreatePage/>}/>
+                        </Route>
+                        <Route path="/register" element={<RegisterPage/>}/>
+                        <Route path="/login" element={<LoginPage/>}/>
                     </Routes>
                 </main>
 

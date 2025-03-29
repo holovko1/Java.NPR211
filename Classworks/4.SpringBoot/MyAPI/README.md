@@ -21,8 +21,8 @@ docker build -t npr211-java .
 docker images --all
 docker run -it --rm -p 5085:8081 --name npr211_container npr211-java
 docker run -d --restart=always --name npr211_container -p 5085:8081 npr211-java
-docker run -d --restart=always -v d:/volumes/spring/uploading:/app/uploading --name npr211_container -p 5085:8081 npr211-java
-docker run -d --restart=always -v /volumes/spring/uploading:/app/uploading --name npr211_container -p 5085:8081 npr211-java
+docker run -d --restart=always -v d:/volumes/spring/photos:/app/photos --name npr211_container -p 5085:8081 npr211-java
+docker run -d --restart=always -v /volumes/spring/photos:/app/photos --name npr211_container -p 5085:8081 npr211-java
 docker ps -a
 docker stop npr211_container
 docker rm npr211_container
@@ -36,7 +36,7 @@ docker push novakvova/npr211-java:latest
 
 docker pull novakvova/npr211-java:latest
 docker ps -a
-docker run -d --restart=always --name npr211_container -p 5085:8081 novakvova/npr211-java
+docker run -d --restart=always -v /volumes/npr211/photos:/app/photos --name npr211_container -p 5085:8081 novakvova/npr211-java
 
 
 docker pull novakvova/npr211-java:latest
